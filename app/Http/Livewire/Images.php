@@ -17,7 +17,7 @@ class Images extends Component
     public function getImagesProperty()
     {
         $images = array();
-        $images = Image::Search($this->search);
+        $images = Image::Search($this->search)->latest();
         return $images;
     }
 
