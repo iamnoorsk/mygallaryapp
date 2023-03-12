@@ -16,8 +16,8 @@
                 <img src="{{ asset('storage/'.$image->path) }}" class="image"/>
 
                 <div class="text-container">
-                    <p class="tag">#{{ $image->tags }} </p>
-                    <p class="description">{{ $image->tags }} </p>
+                    <p class="tag">#{{ substr($image->tags,0,40) }}... </p>
+                    <p class="description">{{ substr($image->description,0,40) }}...</p>
                 </div>
             </div>
         @endforeach

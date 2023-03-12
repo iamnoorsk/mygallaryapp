@@ -126,6 +126,16 @@ p.description {
     .image-container {
         width: 23%;
     }
+
+    p.tag {
+        color: rgb(105, 100, 100);
+        font-size: 18px;
+    }
+    
+    p.description {
+        color: rgb(22, 22, 22);
+        font-size: 18px;
+    }
 }
 
 @media screen and (max-width: 1024px) {
@@ -139,6 +149,15 @@ p.description {
         justify-content: center;
         align-items: center;
     }
+
+    p.tag {
+        color: rgb(105, 100, 100);
+    }
+    
+    p.description {
+        color: rgb(22, 22, 22);
+    }
+
 }
 
 @media screen and (max-width: 900px) {
