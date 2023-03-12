@@ -3,6 +3,7 @@
         <div class="navbar">
             <div class="search-container">
                 <input
+                    wire:model.lazy="search"
                     class="navbar-sinput"
                     type="text"
                     placeholder="Search images here..."

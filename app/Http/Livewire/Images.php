@@ -11,13 +11,20 @@ class Images extends Component
 
     use WithPagination;
 
+    private $perPageItem = 12;
     public $search;
+
+    public function getImagesProperty()
+    {
+        $images = array();
+        $images = Image::Search($this->search);
+        return $images;
+    }
 
 
     public function render()
     {
-        $images = Image::Search($this->search)->paginate(12);
-        return view('livewire.images',['images' => $images]);
+        return view('livewire.images',['images' => $this->images->paginate($this->perPageItem)]);
     }
 
     public function paginationView()
