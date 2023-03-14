@@ -122,6 +122,37 @@ p.description {
     font-size: 30px;
 }
 
+.modal {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    z-index: 100;
+    background-color: rgba(0, 0, 0, 0.5);
+    justify-content: center;
+}
+
+.sub-modal {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin: 100px auto;
+}
+
+.modal-img {
+    padding: 20px;
+    background-color: white;
+    margin: 0 auto;
+    width: 100%;
+    height: 100%;
+}
+
+.close-mark {
+    position: absolute;
+    z-index: 1;
+    right: 0;
+}
+
+
 @media screen and (max-width: 1920px) {
     .image-container {
         width: 23%;

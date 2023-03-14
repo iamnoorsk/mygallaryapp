@@ -1,4 +1,12 @@
 <div class="container">
+    <div class="modal" {{ !empty($key) ? '' : 'hidden' }}>
+        <div class="sub-modal">
+            @if(!empty($key))
+            <img class="modal-img" src="{{ asset('storage/'.$images[$key]->path) }}"></img>
+            <span class="close-mark">&#10060;</span>
+            @endif
+        </div>
+    </div>
     <div class="sub-container">
         <div class="navbar">
             <div class="search-container">
@@ -11,9 +19,9 @@
                 <input type="button" value="Search" class="search-btn">
             </div>
         </div>
-        @foreach($images as $image)
+        @foreach($images as $key => $image)
             <div class="image-container">
-                <img src="{{ asset('storage/'.$image->path) }}" class="image"/>
+                <img src="{{ asset('storage/'.$image->path) }}" wire:click="storeKey({{$key}})" class="image"/>
 
                 <div class="text-container">
                     <p class="tag">#{{ substr($image->tags,0,40) }}... </p>

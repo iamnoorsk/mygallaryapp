@@ -12,7 +12,7 @@ class Images extends Component
     use WithPagination;
 
     private $perPageItem = 12;
-    public $search;
+    public $search,$key = null;
 
     public function getImagesProperty()
     {
@@ -30,5 +30,10 @@ class Images extends Component
     public function paginationView()
     {
         return 'pagination_view';
+    }
+
+    public function storeKey($value)
+    {
+        $this->key = $value;
     }
 }
