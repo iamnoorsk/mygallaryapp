@@ -11,14 +11,14 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('images', function (Blueprint $table) {
+        Schema::create('company_invitations', function (Blueprint $table) {
             $table->id();
-            $table->string('path')->nullable();
-            $table->string('tags')->nullable();
-            $table->string('description')->nullable();
-            $table->foreignId('user_id')->nullable()->constrained('users');
-            $table->softDeletes();
+            $table->foreignId('company_id')->constrained()->cascadeOnDelete();
+            $table->string('email');
+            $table->string('role')->nullable();
             $table->timestamps();
+
+            $table->unique(['company_id', 'email']);
         });
     }
 
@@ -27,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('images');
+        Schema::dropIfExists('company_invitations');
     }
 };

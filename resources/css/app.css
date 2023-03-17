@@ -8,7 +8,6 @@
     font-size: 20px;
 }
 
-
 .navbar{
     display: flex;
     width: 100%;
@@ -134,12 +133,13 @@ p.description {
 .sub-modal {
     display: flex;
     justify-content: center;
-    width: 100%;
-    margin: 100px auto;
+    width: 70%;
+    margin: 60px auto;
 }
 
-.modal-img {
+.modal-img-container {
     padding: 20px;
+    padding-bottom: 10px;
     background-color: white;
     margin: 0 auto;
     width: 100%;
@@ -147,11 +147,35 @@ p.description {
 }
 
 .close-mark {
-    position: absolute;
-    z-index: 1;
-    right: 0;
+    float: right;
+    position: relative;
+    line-height: 0px;
+    z-index: 10;
+    left: 33px;
+    top: -19px;
+    cursor: pointer;
 }
 
+.view-img {
+    width: 100%;
+}
+
+.btn-download {
+    background-color: orange;
+    color: white;
+    padding: 8px 10px;
+    border: none;
+    border-radius: 5px;
+}
+
+.btn-download:hover{
+    background-color: rgb(228, 144, 18);
+}
+
+.btn-login {
+    color: white;
+    float: right;
+}
 
 @media screen and (max-width: 1920px) {
     .image-container {
@@ -166,6 +190,25 @@ p.description {
     p.description {
         color: rgb(22, 22, 22);
         font-size: 18px;
+    }
+
+}
+
+@media screen and (max-width: 1450px) {
+    .sub-modal {
+        margin: 120px auto;
+    }
+}
+
+@media screen and (max-width: 1450px) {
+    .sub-modal {
+        margin: 140px auto;
+    }
+}
+
+@media screen and (max-width: 1250px) {
+    .sub-modal {
+        margin: 160px auto;
     }
 }
 
@@ -189,6 +232,9 @@ p.description {
         color: rgb(22, 22, 22);
     }
 
+    .sub-modal {
+        margin: 200px auto;
+    }
 }
 
 @media screen and (max-width: 900px) {
@@ -200,8 +246,19 @@ p.description {
         width: 100%;
         justify-content: center;
         align-items: center;
-    }    
+    }
+    
+    .sub-modal {
+        margin: 220px auto;
+    }
 }
+
+@media screen and (max-width: 850px) {
+    .sub-modal {
+        margin: 260px auto;
+    }
+}
+
 
 @media screen and (max-width: 600px) {
     .container {
@@ -247,4 +304,7 @@ p.description {
         font-size: 20px;
     }
 
+    .sub-modal {
+        margin: 300px auto;
+    }
 }

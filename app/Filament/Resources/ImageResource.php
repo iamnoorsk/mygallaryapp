@@ -7,6 +7,7 @@ use App\Filament\Resources\ImageResource\RelationManagers;
 use App\Models\Image;
 use Filament\Forms;
 use Filament\Forms\Components\FileUpload;
+use Filament\Forms\Components\Hidden;
 use Filament\Forms\Components\TextInput;
 use Filament\Resources\Form;
 use Filament\Resources\Resource;
@@ -16,6 +17,7 @@ use Filament\Tables\Columns\ImageColumn;
 use Filament\Tables\Columns\TextColumn;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
+use Illuminate\Support\Facades\Auth;
 
 class ImageResource extends Resource
 {
@@ -38,7 +40,8 @@ class ImageResource extends Resource
                 ->required(),
                 TextInput::make('description')
                 ->columnSpan(2)
-                ->required()
+                ->required(),
+                Hidden::make('user_id')->default(Auth::id())
             ]);
     }
 
