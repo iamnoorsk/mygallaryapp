@@ -80,4 +80,9 @@ class ImageResource extends Resource
             'edit' => Pages\EditImage::route('/{record}/edit'),
         ];
     }    
+
+    public static function getEloquentQuery(): Builder
+    {
+        return parent::getEloquentQuery()->whereUserId(auth()->id());
+    }
 }

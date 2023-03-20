@@ -13,12 +13,19 @@ class Images extends Component
     use WithPagination;
 
     private $perPageItem = 12;
-    public $search,$key = null, $image_id = null;
+    public $search,$key = null, $image_id = null, $email = null;
 
     public function getImagesProperty()
     {
         $images = array();
-        $images = Image::with('imageLike')->Search($this->search)->latest();
+        $images = Image::with('imageLike')
+        ->Search($this->search)
+        ->whereHas('user',function($q){
+            if(!empty($this->email)){
+                $q->whereEmail($this->email);
+            }
+        })
+        ->latest();
         return $images;
     }
 
@@ -40,7 +47,7 @@ class Images extends Component
     }
 
     public function like($image_id)
-    {        
+    {
         if(!empty(auth()->id()) && !empty($image_id)){
             $imageLike = ImageLike::where('image_id','=',$image_id)->where('user_id','=',auth()->id())->first();
             if(empty($imageLike)){
@@ -66,5 +73,11 @@ class Images extends Component
         } else {
             redirect('/login');
         }
+    }
+
+    public function filterByUser($email)
+    {
+        $this->email = $email;
+        $this->key = null;
     }
 }
