@@ -19,12 +19,15 @@ class Images extends Component
     {
         $images = array();
         $images = Image::with('imageLike')
-        ->Search($this->search)
         ->whereHas('user',function($q){
             if(!empty($this->email)){
                 $q->whereEmail($this->email);
             }
+            if(!empty($this->search)){
+                $q->where('name','LIKE',"%$this->search%");
+            }
         })
+        ->Search($this->search)
         ->latest();
         return $images;
     }

@@ -36,8 +36,8 @@ class Image extends Model
     {
         if(!empty($search)){
             $query
-            ->where('tags','LIKE','%'.$search.'%')
-            ->orWhere('description','LIKE','%'.$search.'%');
+            ->orWhere('tags','LIKE',"%$search%")
+            ->orWhere('description','LIKE',"%$search%");
             
             $query->with('imageLike',function($q) {
                 $q->where('user_id','=',auth()->id());
